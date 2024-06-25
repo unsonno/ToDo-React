@@ -1,6 +1,9 @@
 import React from 'react';
-
-const Task = ({ task, onDelete, onToggle }) => {
+import { FaTrashCan } from "react-icons/fa6";
+import { deleteData } from "./deleteData";
+// estructura base de una tarea y con lo que debe ir acompañada//
+const Task = ({ task, deleteData, onToggle }) => {
+    
     return (
         <div className="task">
             <input
@@ -9,7 +12,7 @@ const Task = ({ task, onDelete, onToggle }) => {
                 onChange={() => onToggle(task.id)}
             />
             <span>{task.text}</span>
-            <button onClick={() => onDelete(task.id)}>Delete</button>
+            <button onClick={() => deleteData(task.id)}><FaTrashCan /></button>
         </div>
     );
 };
